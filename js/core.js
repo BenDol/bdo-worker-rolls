@@ -1,20 +1,5 @@
 $(function() {
 
-  $(".race").each(function() {
-    var $this = $(this);
-    var $input = $(this).find("input[type='number']");
-    $(this).find("label").text($input.val());
-
-    var race = $this.attr("id");
-    var quality = $this.parent().attr("id");
-
-    var value = getUrlParameter(quality+"_"+race);
-    if(typeof value !== typeof undefined) {
-      $input.val(parseInt(value));
-      $input.trigger("change");
-    }
-  });
-
   $("input[type='number']").on("propertychange change click keyup input paste", function() {
     var $this = $(this);
     var $parent = $this.parent();
@@ -101,6 +86,21 @@ $(function() {
     a.href = data_type + ', ' + table_html;
     a.download = 'exported_worker_rolls_' + Math.floor((Math.random() * 9999999) + 1000000) + '.xls';
     a.click();
+  });
+
+  $(".race").each(function() {
+    var $this = $(this);
+    var $input = $(this).find("input[type='number']");
+    $(this).find("label").text($input.val());
+
+    var race = $this.attr("id");
+    var quality = $this.parent().attr("id");
+
+    var value = getUrlParameter(quality+"_"+race);
+    if(typeof value !== typeof undefined) {
+      $input.val(parseInt(value));
+      $input.trigger("change");
+    }
   });
 
 });
