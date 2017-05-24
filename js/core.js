@@ -1,15 +1,47 @@
 $(function() {
 
+  qualities = newMap([
+    {naive: 1},
+    {green: 2},
+    {skilled: 3},
+    {professional: 4},
+    {artisan: 5}
+  ]);
+
+  races = newMap([
+    {giant: 1},
+    {human: 2},
+    {goblin: 3}
+  ]);
+
+  matrix = newMap([
+    {1: 1}, // naive giant
+    {1: 2}, // naive human
+    {1: 3}, // naive goblin
+    {2: 1}, // green giant
+    {2: 2}, // green human
+    {2: 3}, // green goblin
+    {3: 1}, // skilled giant
+    {3: 2}, // skilled human
+    {3: 3}, // skilled goblin
+    {4: 1}, // professional giant
+    {4: 2}, // professional human
+    {4: 3}, // professional goblin
+    {5: 1}, // artisan giant
+    {5: 2}, // artisan human
+    {5: 3} // artisan goblin
+  ]);
+
   $("input[type='number']").on("propertychange change click keyup input paste", function() {
     var $this = $(this);
     var $parent = $this.parent();
     var $row = $parent.parent();
 
-    var race = $parent.attr("id");
-    var quality = $row.attr("id");
+    var race = get(races, $parent.attr("id"));
+    var quality = get(qualities, $row.attr("id"));
 
     $this.parent().find("label").text($this.val());
-    setUrlParameter(quality+"_"+race, $this.val());
+    setUrlParameter(quality+"."+race, $this.val());
 
     var $new = 0;
 
@@ -65,12 +97,23 @@ $(function() {
     $(this).trigger("change");
   });
 
-  $("#scrollable").click(function () {
+  $("input#scrollable").click(function () {
     var $checked = $(this).attr('checked');
     if(typeof $checked == typeof undefined || $checked == false) {
       $(this).attr('checked', "");
     } else {
       $(this).attr('checked', null);
+    }
+  });
+
+  $("input#colored").click(function () {
+    var $checked = $(this).attr('checked');
+    if(typeof $checked == typeof undefined || $checked == false) {
+      $(this).attr('checked', "");
+      $("table").addClass("colored");
+    } else {
+      $(this).attr('checked', null);
+      $("table").removeClass("colored");
     }
   });
 
@@ -93,10 +136,10 @@ $(function() {
     var $input = $(this).find("input[type='number']");
     $(this).find("label").text($input.val());
 
-    var race = $this.attr("id");
-    var quality = $this.parent().attr("id");
+    var race = get(races, $this.attr("id"));
+    var quality = get(qualities, $this.parent().attr("id"));
 
-    var value = getUrlParameter(quality+"_"+race);
+    var value = getUrlParameter(quality+"."+race);
     if(typeof value !== typeof undefined) {
       $input.val(parseInt(value));
       $input.trigger("change");
@@ -143,3 +186,15 @@ function getUrlParameter(sParam) {
     }
   }
 };
+
+function get(map, key) {
+  return map[key][key];
+}
+
+function newMap(array) {
+  var hash = Object.create(null);
+  array.forEach(function (object) {
+    hash[Object.keys(object)[0]] = object;
+  });
+  return hash;
+}

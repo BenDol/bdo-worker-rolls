@@ -26,7 +26,7 @@
         </tr>
         <!-- Naive -->
         <tr id="naive" class="row even">
-          <td class="col s12 m4 l2"><p>Naive</p></td>
+          <td class="quality col s12 m4 l2"><p>Naive</p></td>
           <td id="giant" class="race col s12 m4 l3"><input type="number" step="1" min="0" value="0"></input><label>0</label></td>
           <td id="human" class="race col s12 m4 l3"><input type="number" step="1" min="0" value="0"></input><label>0</label></td>
           <td id="goblin" class="race col s12 m4 l3"><input type="number" step="1" min="0" value="0"></input><label>0</label></td>
@@ -34,7 +34,7 @@
         </tr>
         <!-- Green -->
         <tr id="green" class="row odd">
-          <td class="col s12 m4 l2"><p>Green</p></td>
+          <td class="quality col s12 m4 l2"><p>Green</p></td>
           <td id="giant" class="race col s12 m4 l3"><input type="number" step="1" min="0" value="0"></input><label>0</label></td>
           <td id="human" class="race col s12 m4 l3"><input type="number" step="1" min="0" value="0"></input><label>0</label></td>
           <td id="goblin" class="race col s12 m4 l3"><input type="number" step="1" min="0" value="0"></input><label>0</label></td>
@@ -42,7 +42,7 @@
         </tr>
         <!-- Skilled -->
         <tr id="skilled" class="row even">
-          <td class="col s12 m4 l2"><p>Skilled</p></td>
+          <td class="quality col s12 m4 l2"><p>Skilled</p></td>
           <td id="giant" class="race col s12 m4 l3"><input type="number" step="1" min="0" value="0"></input><label>0</label></td>
           <td id="human" class="race col s12 m4 l3"><input type="number" step="1" min="0" value="0"></input><label>0</label></td>
           <td id="goblin" class="race col s12 m4 l3"><input type="number" step="1" min="0" value="0"></input><label>0</label></td>
@@ -50,7 +50,7 @@
         </tr>
         <!-- Professional -->
         <tr id="professional" class="row odd">
-          <td class="col s12 m4 l2"><p>Professional</p></td>
+          <td class="quality col s12 m4 l2"><p>Professional</p></td>
           <td id="giant" class="race col s12 m4 l3"><input type="number" step="1" min="0" value="0"></input><label>0</label></td>
           <td id="human" class="race col s12 m4 l3"><input type="number" step="1" min="0" value="0"></input><label>0</label></td>
           <td id="goblin" class="race col s12 m4 l3"><input type="number" step="1" min="0" value="0"></input><label>0</label></td>
@@ -58,7 +58,7 @@
         </tr>
         <!-- Artisan -->
         <tr id="artisan" class="row even">
-          <td class="col s12 m4 l2"><p>Artisan</p></td>
+          <td class="quality col s12 m4 l2"><p>Artisan</p></td>
           <td id="giant" class="race col s12 m4 l3"><input type="number" step="1" min="0" value="0"></input><label>0</label></td>
           <td id="human" class="race col s12 m4 l3"><input type="number" step="1" min="0" value="0"></input><label>0</label></td>
           <td id="goblin" class="race col s12 m4 l3"><input type="number" step="1" min="0" value="0"></input><label>0</label></td>
@@ -66,20 +66,27 @@
         </tr>
 
         <tr class="row even">
-          <td class="col s12 m4 l2"></td>
+          <td class="col s12 m4 l2" >
+            
+          </td>
           <td class="col s12 m4 l3"></td>
           <td class="col s12 m4 l3"></td>
           <td class="text col s12 m4 l3" style="text-align: right"><label>Total Rolls</label></td>
           <td id="overall" class="col s12 m4 l1"><label>0</label></td>
         </tr>
         <tr class="row even">
-          <td class="col s12 m4 l2">
+          <td class="col s12 m4 l2" >
            <p>
               <input type="checkbox" id="scrollable" checked="checked" />
               <label for="scrollable">Mouse Scroll Increments</label>
             </p>
           </td>
-          <td class="col s12 m4 l3"></td>
+          <td class="col s12 m4 l3" style="text-align: left">
+            <p>
+              <input type="checkbox" id="colored" />
+              <label for="colored">Show Quality Colors</label>
+            </p>
+          </td>
           <td class="col s12 m4 l3"></td>
           <td class="text col s12 m4 l3" style="text-align: right"><label>Energy Spent</label></td>
           <td id="energy" class="text col s12 m4 l1"><label>0</label></td>

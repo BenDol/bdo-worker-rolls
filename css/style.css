@@ -6,6 +6,34 @@ td {
   text-align: center;
 }
 
+table.colored tr#green td.quality, 
+table.colored tr#green td.race {
+  font-weight: bold;
+  color: rgb(5, 196, 18);
+  /*text-shadow: 1px 1px 1px #000000;*/
+}
+
+table.colored tr#skilled td.quality, 
+table.colored tr#skilled td.race {
+  font-weight: bold;
+  color: rgb(0, 144, 255);
+  /*text-shadow: 1px 1px 1px #000000;*/
+}
+
+table.colored tr#professional td.quality, 
+table.colored tr#professional td.race {
+  font-weight: bold;
+  color: rgb(255, 212, 0);
+  /*text-shadow: 2px 2px 2px #ffffff;*/
+}
+
+table.colored tr#artisan td.quality, 
+table.colored tr#artisan td.race {
+  font-weight: bold;
+  color: rgb(224, 115, 0);
+  /*text-shadow: 1px 1px 1px #000000;*/
+}
+
 .table {
   min-width: 1000px;
   width: 100%;
