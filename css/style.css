@@ -1,0 +1,67 @@
+body {
+  min-height: 100%;
+}
+
+.table {
+  min-width: 1000px;
+  width: 100%;
+  overflow: none;
+  vertical-align: middle;
+}
+
+.row {
+  vertical-align: middle;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.header {
+  background-color: rgb(25, 183, 107);
+  border-right: thin solid white;
+  color: white;
+}
+
+.row.even {
+
+}
+
+.row.odd {
+  background-color: rgb(239, 239, 239);
+}
+
+.col {
+  border-right: thin solid white;
+}
+
+.col input {
+  text-align: center;
+}
+
+#total label, #overall label, .text label {
+  display: block;
+  height: 66px;
+  padding-top: 23px;
+  font-size: 15px;
+  color: black;
+}
+
+.toolbar {
+}
+
+.overall {
+
+}
+
+.info {
+  margin-top:50px;
+  padding: 20px;
+  width: 100%;
+}
+
+.footer {
+  position: absolute;
+  /*bottom: 0;*/
+  padding: 20px;
+  background-color: white;
+  width: 100%;
+}

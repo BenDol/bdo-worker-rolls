@@ -1,0 +1,104 @@
+<html>
+  <head>
+      <!--Import Google Icon Font-->
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+      <link type="text/css" rel="stylesheet" href="css/style.css"  media="screen,projection"/>
+
+      <title>Bonfyre's Worker Roll Counter</title>
+  </head>
+
+  <body>
+    <div class="table">
+      <div class="row">
+        <div class="header col s12 m4 l2"><p>Worker Rolls</p></div>
+        <div id="giant" class="header col s12 m4 l3"><p>Giant</p></div>
+        <div id="human" class="header col s12 m4 l3"><p>Human</p></div>
+        <div id="goblin" class="header col s12 m4 l3"><p>Goblin</p></div>
+        <div id="total" class="header col s12 m4 l1"><p>Total</p></div>
+      </div>
+      <!-- Naive -->
+      <div id="naive" class="row even">
+        <div class="col s12 m4 l2"><p>Naive</p></div>
+        <div id="giant" class="race col s12 m4 l3"><input type="number" step="1" min="0" value="0"></div>
+        <div id="human" class="race col s12 m4 l3"><input type="number" step="1" min="0" value="0"></div>
+        <div id="goblin" class="race col s12 m4 l3"><input type="number" step="1" min="0" value="0"></div>
+        <div id="total" class="col s12 m4 l1"><label>0</label></div>
+      </div>
+      <!-- Green -->
+      <div id="green" class="row odd">
+        <div class="col s12 m4 l2"><p>Green</p></div>
+        <div id="giant" class="race col s12 m4 l3"><input type="number" step="1" min="0" value="0"></div>
+        <div id="human" class="race col s12 m4 l3"><input type="number" step="1" min="0" value="0"></div>
+        <div id="goblin" class="race col s12 m4 l3"><input type="number" step="1" min="0" value="0"></div>
+        <div id="total" class="col s12 m4 l1"><label>0</label></div>
+      </div>
+      <!-- Skilled -->
+      <div id="skilled" class="row even">
+        <div class="col s12 m4 l2"><p>Skilled</p></div>
+        <div id="giant" class="race col s12 m4 l3"><input type="number" step="1" min="0" value="0"></div>
+        <div id="human" class="race col s12 m4 l3"><input type="number" step="1" min="0" value="0"></div>
+        <div id="goblin" class="race col s12 m4 l3"><input type="number" step="1" min="0" value="0"></div>
+        <div id="total" class="col s12 m4 l1"><label>0</label></div>
+      </div>
+      <!-- Professional -->
+      <div id="professional" class="row odd">
+        <div class="col s12 m4 l2"><p>Professional</p></div>
+        <div id="giant" class="race col s12 m4 l3"><input type="number" step="1" min="0" value="0"></div>
+        <div id="human" class="race col s12 m4 l3"><input type="number" step="1" min="0" value="0"></div>
+        <div id="goblin" class="race col s12 m4 l3"><input type="number" step="1" min="0" value="0"></div>
+        <div id="total" class="col s12 m4 l1"><label>0</label></div>
+      </div>
+      <!-- Artisan -->
+      <div id="artisan" class="row even">
+        <div class="col s12 m4 l2"><p>Artisan</p></div>
+        <div id="giant" class="race col s12 m4 l3"><input type="number" step="1" min="0" value="0"></div>
+        <div id="human" class="race col s12 m4 l3"><input type="number" step="1" min="0" value="0"></div>
+        <div id="goblin" class="race col s12 m4 l3"><input type="number" step="1" min="0" value="0"></div>
+        <div id="total" class="col s12 m4 l1"><label>0</label></div>
+      </div>
+
+      <div class="toolbar">
+        <div class="row even">
+          <div class="col s12 m4 l2"></div>
+          <div class="col s12 m4 l3"></div>
+          <div class="col s12 m4 l3"></div>
+          <div class="text col s12 m4 l3" style="text-align: right"><label>Total Rolls</label></div>
+          <div id="overall" class="col s12 m4 l1"><label>0</label></div>
+        </div>
+        <div class="row even">
+          <div class="col s12 m4 l2">
+           <p>
+              <input type="checkbox" id="scrollable" checked="checked" />
+              <label for="scrollable">Mouse Scroll Increments</label>
+            </p>
+          </div>
+          <div class="col s12 m4 l3"></div>
+          <div class="col s12 m4 l3"></div>
+          <div class="text col s12 m4 l3" style="text-align: right"><label>Energy Spent</label></div>
+          <div id="energy" class="text col s12 m4 l1"><label>0</label></div>
+        </div>
+      </div>
+  
+
+    <div class="info">
+      Keep track of your worker rolls by simply hovering over the worker type value and scrolling with the mouse wheel, or you can use the arrow keys 'up' and 'down', or simply type the value you want.
+    </div>
+
+    <div class="footer">
+      A convenience tool for counting your worker rolls, made by Bonfyre! If you have any suggestions, you can find me on Discord: Bonfyre#6103
+    </div>
+
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/jquery.mousewheel.min.js"></script>
+    <script type="text/javascript" src="js/core.js"></script>
+  </body>
+</html>
