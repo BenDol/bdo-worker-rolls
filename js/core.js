@@ -133,6 +133,13 @@ $(function() {
     a.click();
   });
 
+  $("#clear").click(function(e) {
+    var conf = confirm("Are you sure you would like to clear the current data?");
+    if(conf) {
+      window.location.href = window.location.hostname + window.location.pathname
+    }
+  });
+
   $(".race").each(function() {
     var $this = $(this);
     var $input = $(this).find("input[type='number']");
@@ -155,7 +162,7 @@ $(function() {
 
 });
 
-function setUrlParameter(paramName, paramValue) {
+function setUrlParameter(paramName, paramValue, reload) {
   var url = window.location.href;
   var hash = location.hash;
   url = url.replace(hash, '');
@@ -175,8 +182,11 @@ function setUrlParameter(paramName, paramValue) {
     url += "?" + paramName + "=" + paramValue;
   }
 
-  window.history.pushState("object or string", "Bonfyre's Worker Roll Counter", url + hash);
-  //window.location.href = url + hash;
+  if(!reload) {
+    window.history.pushState("object or string", "Bonfyre's Worker Roll Counter", url + hash);
+  } else {
+    window.location.href = url + hash;
+  }
 }
 
 function getUrlParameter(sParam) {
