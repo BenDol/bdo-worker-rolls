@@ -8,6 +8,7 @@ $(function() {
     var race = $parent.attr("id");
     var quality = $row.attr("id");
 
+    $this.parent().find("label").text($this.val());
     setUrlParameter(quality+"_"+race, $this.val());
 
     var $new = 0;
@@ -61,7 +62,6 @@ $(function() {
         $this.val($currVal - $inc);
       }
     }
-    $this.parent().find("label").text($this.val());
     $(this).trigger("change");
   });
 
