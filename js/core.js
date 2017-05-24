@@ -2,9 +2,17 @@ $(function() {
 
   $(".race").each(function() {
     var $this = $(this);
-    $(this).find("label").text($(this).find("input[type='number']").val());
+    var $input = $(this).find("input[type='number']");
+    $(this).find("label").text($input.val());
 
-    // TODO:
+    var race = $this.attr("id");
+    var quality = $this.parent().attr("id");
+
+    var value = getUrlParameter(quality+"_"+race);
+    if(typeof value !== typeof undefined) {
+      $input.val(parseInt(value));
+      $input.trigger("change");
+    }
   });
 
   $("input[type='number']").on("propertychange change click keyup input paste", function() {
@@ -15,7 +23,7 @@ $(function() {
     var race = $parent.attr("id");
     var quality = $row.attr("id");
 
-    //setUrlParameter(race+"_"+quality, $this.val());
+    setUrlParameter(quality+"_"+race, $this.val());
 
     var $new = 0;
 
@@ -116,7 +124,9 @@ function setUrlParameter(paramName, paramValue) {
   } else {
     url += "?" + paramName + "=" + paramValue;
   }
-  window.location.href = url + hash;
+
+  window.history.pushState("object or string", "Bonfyre's Worker Roll Counter", url + hash);
+  //window.location.href = url + hash;
 }
 
 function getUrlParameter(sParam) {
