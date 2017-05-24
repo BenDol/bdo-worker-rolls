@@ -2,6 +2,10 @@ body {
   min-height: 100%;
 }
 
+td {
+  text-align: center;
+}
+
 .table {
   min-width: 1000px;
   width: 100%;
@@ -45,7 +49,8 @@ body {
   color: black;
 }
 
-.toolbar {
+.race label {
+  display: none;
 }
 
 .overall {

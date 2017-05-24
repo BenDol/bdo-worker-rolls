@@ -1,14 +1,23 @@
 $(function() {
 
+  $(".race").each(function() {
+    var $this = $(this);
+    $(this).find("label").text($(this).find("input[type='number']").val());
+
+    // TODO:
+  });
+
   $("input[type='number']").on("propertychange change click keyup input paste", function() {
-    $this = $(this);
-    $parent = $this.parent();
-    $row = $parent.parent();
+    var $this = $(this);
+    var $parent = $this.parent();
+    var $row = $parent.parent();
 
-    $race = $parent.attr("id");
-    $quality = $row.attr("id");
+    var race = $parent.attr("id");
+    var quality = $row.attr("id");
 
-    $new = 0;
+    //setUrlParameter(race+"_"+quality, $this.val());
+
+    var $new = 0;
 
     // combine relative
     $row.find(".race").each(function() {
@@ -23,7 +32,7 @@ $(function() {
     $(".row #total label").each(function() {
       $new += parseInt($(this).text());
     });
-    $(".toolbar #overall label").text($new);
+    $("#overall label").text($new);
 
     $("#energy label").text($new * 5);
   });
@@ -34,15 +43,15 @@ $(function() {
     $(this).blur();
   }).on("mousewheel", function(event) {
     event.preventDefault();
-    $scrollable = $(".toolbar #scrollable").attr("checked");
+    var $scrollable = $("#scrollable").attr("checked");
     if(typeof $scrollable == typeof undefined || $scrollable == false) {
       return;
     }
-    $this = $(this);
-    $inc = parseFloat($this.attr('step'));
-    $max = parseFloat($this.attr('max'));
-    $min = parseFloat($this.attr('min'));
-    $currVal = parseFloat($this.val());
+    var $this = $(this);
+    var $inc = parseFloat($this.attr('step'));
+    var $max = parseFloat($this.attr('max'));
+    var $min = parseFloat($this.attr('min'));
+    var $currVal = parseFloat($this.val());
 
     // If blank, assume value of 0
     if (isNaN($currVal)) {
@@ -59,11 +68,12 @@ $(function() {
         $this.val($currVal - $inc);
       }
     }
+    $this.parent().find("label").text($this.val());
     $(this).trigger("change");
   });
 
   $("#scrollable").click(function () {
-    $checked = $(this).attr('checked');
+    var $checked = $(this).attr('checked');
     if(typeof $checked == typeof undefined || $checked == false) {
       $(this).attr('checked', "");
     } else {
@@ -71,38 +81,55 @@ $(function() {
     }
   });
 
+  $("#export").click(function(e) {
+    e.preventDefault();
+
+    //getting data from our table
+    var data_type = 'data:application/vnd.ms-excel';
+    var table_div = document.getElementById('wrapper');
+    var table_html = table_div.outerHTML.replace(/ /g, '%20');
+
+    var a = document.createElement('a');
+    a.href = data_type + ', ' + table_html;
+    a.download = 'exported_worker_rolls_' + Math.floor((Math.random() * 9999999) + 1000000) + '.xls';
+    a.click();
+  });
+
 });
 
-function fnExcelReport()
-{
-    var tab_text="<table border='2px'><tr bgcolor='#87AFC6'>";
-    var textRange; var j=0;
-    tab = document.getElementById('headerTable'); // id of table
-
-    for(j = 0 ; j < tab.rows.length ; j++) 
-    {     
-        tab_text=tab_text+tab.rows[j].innerHTML+"</tr>";
-        //tab_text=tab_text+"</tr>";
-    }
-
-    tab_text=tab_text+"</table>";
-    tab_text= tab_text.replace(/<A[^>]*>|<\/A>/g, "");//remove if u want links in your table
-    tab_text= tab_text.replace(/<img[^>]*>/gi,""); // remove if u want images in your table
-    tab_text= tab_text.replace(/<input[^>]*>|<\/input>/gi, ""); // reomves input params
-
-    var ua = window.navigator.userAgent;
-    var msie = ua.indexOf("MSIE "); 
-
-    if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./))      // If Internet Explorer
-    {
-        txtArea1.document.open("txt/html","replace");
-        txtArea1.document.write(tab_text);
-        txtArea1.document.close();
-        txtArea1.focus(); 
-        sa=txtArea1.document.execCommand("SaveAs",true,"Say Thanks to Sumit.xls");
-    }  
-    else                 //other browser not tested on IE 11
-        sa = window.open('data:application/vnd.ms-excel,' + encodeURIComponent(tab_text));  
-
-    return (sa);
+function setUrlParameter(paramName, paramValue) {
+  var url = window.location.href;
+  var hash = location.hash;
+  url = url.replace(hash, '');
+  if (url.indexOf("?") >= 0) {
+    var params = url.substring(url.indexOf("?") + 1).split("&");
+    var paramFound = false;
+    params.forEach(function(param, index) {
+      var p = param.split("=");
+      if (p[0] == paramName) {
+        params[index] = paramName + "=" + paramValue;
+        paramFound = true;
+      } 
+    });
+    if (!paramFound) params.push(paramName + "=" + paramValue);
+    url = url.substring(0, url.indexOf("?")+1) + params.join("&");
+  } else {
+    url += "?" + paramName + "=" + paramValue;
+  }
+  window.location.href = url + hash;
 }
+
+function getUrlParameter(sParam) {
+  var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+    sURLVariables = sPageURL.split('&'),
+    sParameterName,
+    i;
+
+  for (i = 0; i < sURLVariables.length; i++) {
+    sParameterName = sURLVariables[i].split('=');
+
+    if (sParameterName[0] === sParam) {
+      return sParameterName[1] === undefined ? true : sParameterName[1];
+    }
+  }
+};

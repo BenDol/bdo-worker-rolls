@@ -15,77 +15,81 @@
   </head>
 
   <body>
-    <div class="table">
-      <div class="row">
-        <div class="header col s12 m4 l2"><p>Worker Rolls</p></div>
-        <div id="giant" class="header col s12 m4 l3"><p>Giant</p></div>
-        <div id="human" class="header col s12 m4 l3"><p>Human</p></div>
-        <div id="goblin" class="header col s12 m4 l3"><p>Goblin</p></div>
-        <div id="total" class="header col s12 m4 l1"><p>Total</p></div>
-      </div>
-      <!-- Naive -->
-      <div id="naive" class="row even">
-        <div class="col s12 m4 l2"><p>Naive</p></div>
-        <div id="giant" class="race col s12 m4 l3"><input type="number" step="1" min="0" value="0"></div>
-        <div id="human" class="race col s12 m4 l3"><input type="number" step="1" min="0" value="0"></div>
-        <div id="goblin" class="race col s12 m4 l3"><input type="number" step="1" min="0" value="0"></div>
-        <div id="total" class="col s12 m4 l1"><label>0</label></div>
-      </div>
-      <!-- Green -->
-      <div id="green" class="row odd">
-        <div class="col s12 m4 l2"><p>Green</p></div>
-        <div id="giant" class="race col s12 m4 l3"><input type="number" step="1" min="0" value="0"></div>
-        <div id="human" class="race col s12 m4 l3"><input type="number" step="1" min="0" value="0"></div>
-        <div id="goblin" class="race col s12 m4 l3"><input type="number" step="1" min="0" value="0"></div>
-        <div id="total" class="col s12 m4 l1"><label>0</label></div>
-      </div>
-      <!-- Skilled -->
-      <div id="skilled" class="row even">
-        <div class="col s12 m4 l2"><p>Skilled</p></div>
-        <div id="giant" class="race col s12 m4 l3"><input type="number" step="1" min="0" value="0"></div>
-        <div id="human" class="race col s12 m4 l3"><input type="number" step="1" min="0" value="0"></div>
-        <div id="goblin" class="race col s12 m4 l3"><input type="number" step="1" min="0" value="0"></div>
-        <div id="total" class="col s12 m4 l1"><label>0</label></div>
-      </div>
-      <!-- Professional -->
-      <div id="professional" class="row odd">
-        <div class="col s12 m4 l2"><p>Professional</p></div>
-        <div id="giant" class="race col s12 m4 l3"><input type="number" step="1" min="0" value="0"></div>
-        <div id="human" class="race col s12 m4 l3"><input type="number" step="1" min="0" value="0"></div>
-        <div id="goblin" class="race col s12 m4 l3"><input type="number" step="1" min="0" value="0"></div>
-        <div id="total" class="col s12 m4 l1"><label>0</label></div>
-      </div>
-      <!-- Artisan -->
-      <div id="artisan" class="row even">
-        <div class="col s12 m4 l2"><p>Artisan</p></div>
-        <div id="giant" class="race col s12 m4 l3"><input type="number" step="1" min="0" value="0"></div>
-        <div id="human" class="race col s12 m4 l3"><input type="number" step="1" min="0" value="0"></div>
-        <div id="goblin" class="race col s12 m4 l3"><input type="number" step="1" min="0" value="0"></div>
-        <div id="total" class="col s12 m4 l1"><label>0</label></div>
-      </div>
+    <div id="wrapper">
+      <table id="table" class="table">
+        <tr class="row">
+          <td class="header col s12 m4 l2"><p>Worker Rolls</p></td>
+          <td id="giant" class="header col s12 m4 l3"><p>Giant</p></td>
+          <td id="human" class="header col s12 m4 l3"><p>Human</p></td>
+          <td id="goblin" class="header col s12 m4 l3"><p>Goblin</p></td>
+          <td id="total" class="header col s12 m4 l1"><p>Total</p></td>
+        </tr>
+        <!-- Naive -->
+        <tr id="naive" class="row even">
+          <td class="col s12 m4 l2"><p>Naive</p></td>
+          <td id="giant" class="race col s12 m4 l3"><input type="number" step="1" min="0" value="0"></input><label>0</label></td>
+          <td id="human" class="race col s12 m4 l3"><input type="number" step="1" min="0" value="0"></input><label>0</label></td>
+          <td id="goblin" class="race col s12 m4 l3"><input type="number" step="1" min="0" value="0"></input><label>0</label></td>
+          <td id="total" class="col s12 m4 l1"><label>0</label></td>
+        </tr>
+        <!-- Green -->
+        <tr id="green" class="row odd">
+          <td class="col s12 m4 l2"><p>Green</p></td>
+          <td id="giant" class="race col s12 m4 l3"><input type="number" step="1" min="0" value="0"></input><label>0</label></td>
+          <td id="human" class="race col s12 m4 l3"><input type="number" step="1" min="0" value="0"></input><label>0</label></td>
+          <td id="goblin" class="race col s12 m4 l3"><input type="number" step="1" min="0" value="0"></input><label>0</label></td>
+          <td id="total" class="col s12 m4 l1"><label>0</label></td>
+        </tr>
+        <!-- Skilled -->
+        <tr id="skilled" class="row even">
+          <td class="col s12 m4 l2"><p>Skilled</p></td>
+          <td id="giant" class="race col s12 m4 l3"><input type="number" step="1" min="0" value="0"></input><label>0</label></td>
+          <td id="human" class="race col s12 m4 l3"><input type="number" step="1" min="0" value="0"></input><label>0</label></td>
+          <td id="goblin" class="race col s12 m4 l3"><input type="number" step="1" min="0" value="0"></input><label>0</label></td>
+          <td id="total" class="col s12 m4 l1"><label>0</label></td>
+        </tr>
+        <!-- Professional -->
+        <tr id="professional" class="row odd">
+          <td class="col s12 m4 l2"><p>Professional</p></td>
+          <td id="giant" class="race col s12 m4 l3"><input type="number" step="1" min="0" value="0"></input><label>0</label></td>
+          <td id="human" class="race col s12 m4 l3"><input type="number" step="1" min="0" value="0"></input><label>0</label></td>
+          <td id="goblin" class="race col s12 m4 l3"><input type="number" step="1" min="0" value="0"></input><label>0</label></td>
+          <td id="total" class="col s12 m4 l1"><label>0</label></td>
+        </tr>
+        <!-- Artisan -->
+        <tr id="artisan" class="row even">
+          <td class="col s12 m4 l2"><p>Artisan</p></td>
+          <td id="giant" class="race col s12 m4 l3"><input type="number" step="1" min="0" value="0"></input><label>0</label></td>
+          <td id="human" class="race col s12 m4 l3"><input type="number" step="1" min="0" value="0"></input><label>0</label></td>
+          <td id="goblin" class="race col s12 m4 l3"><input type="number" step="1" min="0" value="0"></input><label>0</label></td>
+          <td id="total" class="col s12 m4 l1"><label>0</label></td>
+        </tr>
 
-      <div class="toolbar">
-        <div class="row even">
-          <div class="col s12 m4 l2"></div>
-          <div class="col s12 m4 l3"></div>
-          <div class="col s12 m4 l3"></div>
-          <div class="text col s12 m4 l3" style="text-align: right"><label>Total Rolls</label></div>
-          <div id="overall" class="col s12 m4 l1"><label>0</label></div>
-        </div>
-        <div class="row even">
-          <div class="col s12 m4 l2">
+        <tr class="row even">
+          <td class="col s12 m4 l2"></td>
+          <td class="col s12 m4 l3"></td>
+          <td class="col s12 m4 l3"></td>
+          <td class="text col s12 m4 l3" style="text-align: right"><label>Total Rolls</label></td>
+          <td id="overall" class="col s12 m4 l1"><label>0</label></td>
+        </tr>
+        <tr class="row even">
+          <td class="col s12 m4 l2">
            <p>
               <input type="checkbox" id="scrollable" checked="checked" />
               <label for="scrollable">Mouse Scroll Increments</label>
             </p>
-          </div>
-          <div class="col s12 m4 l3"></div>
-          <div class="col s12 m4 l3"></div>
-          <div class="text col s12 m4 l3" style="text-align: right"><label>Energy Spent</label></div>
-          <div id="energy" class="text col s12 m4 l1"><label>0</label></div>
-        </div>
-      </div>
-  
+          </td>
+          <td class="col s12 m4 l3"></td>
+          <td class="col s12 m4 l3"></td>
+          <td class="text col s12 m4 l3" style="text-align: right"><label>Energy Spent</label></td>
+          <td id="energy" class="text col s12 m4 l1"><label>0</label></td>
+        </tr>
+      </table>
+    </div>
+
+    <div style="margin-top:40px;padding-left: 20px;">
+      <button id="export" class="waves-effect waves-light btn"><i class="material-icons left">file_download</i>Export</button>
+    </div>
 
     <div class="info">
       Keep track of your worker rolls by simply hovering over the worker type value and scrolling with the mouse wheel, or you can use the arrow keys 'up' and 'down', or simply type the value you want.
