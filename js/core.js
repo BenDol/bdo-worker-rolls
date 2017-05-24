@@ -97,7 +97,7 @@ $(function() {
     $(this).trigger("change");
   });
 
-  $("input#scrollable").click(function () {
+  $("input#scrollable").on("change", function () {
     var $checked = $(this).attr('checked');
     if(typeof $checked == typeof undefined || $checked == false) {
       $(this).attr('checked', "");
@@ -106,14 +106,16 @@ $(function() {
     }
   });
 
-  $("input#colored").click(function () {
+  $("input#colored").on("change", function () {
     var $checked = $(this).attr('checked');
     if(typeof $checked == typeof undefined || $checked == false) {
       $(this).attr('checked', "");
       $("table").addClass("colored");
+      Cookies.set("setting_colored", "true", { expires: 999 });
     } else {
       $(this).attr('checked', null);
       $("table").removeClass("colored");
+      Cookies.remove("setting_colored");
     }
   });
 
@@ -145,6 +147,11 @@ $(function() {
       $input.trigger("change");
     }
   });
+
+  if(typeof Cookies.get("setting_colored") !== typeof undefined) {
+    $("input#colored").prop("checked", true);
+    $("input#colored").trigger("change");
+  }
 
 });
 
