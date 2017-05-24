@@ -136,8 +136,7 @@ $(function() {
   $("#clear").click(function(e) {
     var conf = confirm("Are you sure you would like to clear the current data?");
     if(conf) {
-      window.history.pushState("object or string", "Bonfyre's Worker Roll Counter", "");
-      window.location.href = "";
+      window.location.href = window.location.pathname;
     }
   });
 
