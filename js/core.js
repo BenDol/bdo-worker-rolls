@@ -136,7 +136,7 @@ $(function() {
   $("#clear").click(function(e) {
     var conf = confirm("Are you sure you would like to clear the current data?");
     if(conf) {
-      window.location.href = window.location.hostname + window.location.pathname
+      window.location.href = window.location.hostname;
     }
   });
 
