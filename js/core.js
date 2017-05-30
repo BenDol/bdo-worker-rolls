@@ -40,7 +40,7 @@ $(function() {
     var race = get(races, $parent.attr("id"));
     var quality = get(qualities, $row.attr("id"));
 
-    $this.parent().find("label").text($this.val());
+    $parent.find("label").text($this.val());
     setUrlParameter(quality+"."+race, $this.val());
 
     var $new = 0;
@@ -55,8 +55,17 @@ $(function() {
 
     // combine total
     $new = 0;
-    $(".row #total label").each(function() {
+    $(".row #total label").each(function(i) {
       $new += parseInt($(this).text());
+    });
+
+    $(".row #total label").each(function() {
+      var percent = (parseInt($(this).text()) * 100) / $new;
+
+      // update progress
+      var $progress = $(this).parent().parent()
+        .find("td.quality").find(".progress").find(".determinate")
+        .css("width", percent + "%");
     });
     $("#overall label").text($new);
 
@@ -143,7 +152,7 @@ $(function() {
   $(".race").each(function() {
     var $this = $(this);
     var $input = $(this).find("input[type='number']");
-    $(this).find("label").text($input.val());
+    $this.find("label").text($input.val());
 
     var race = get(races, $this.attr("id"));
     var quality = get(qualities, $this.parent().attr("id"));
@@ -156,8 +165,7 @@ $(function() {
   });
 
   if(typeof Cookies.get("setting_colored") !== typeof undefined) {
-    $("input#colored").prop("checked", true);
-    $("input#colored").trigger("change");
+    $("input#colored").prop("checked", true).trigger("change");
   }
 
 });
@@ -174,7 +182,7 @@ function setUrlParameter(paramName, paramValue, reload) {
       if (p[0] == paramName) {
         params[index] = paramName + "=" + paramValue;
         paramFound = true;
-      } 
+      }
     });
     if (!paramFound) params.push(paramName + "=" + paramValue);
     url = url.substring(0, url.indexOf("?")+1) + params.join("&");
@@ -192,8 +200,7 @@ function setUrlParameter(paramName, paramValue, reload) {
 function getUrlParameter(sParam) {
   var sPageURL = decodeURIComponent(window.location.search.substring(1)),
     sURLVariables = sPageURL.split('&'),
-    sParameterName,
-    i;
+    sParameterName, i;
 
   for (i = 0; i < sURLVariables.length; i++) {
     sParameterName = sURLVariables[i].split('=');

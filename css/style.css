@@ -77,6 +77,35 @@ table.colored tr#artisan td.race {
   color: black;
 }
 
+.quality p {
+  margin-bottom: 9px;
+}
+
+.quality .progress {
+  background-color: #dddddd !important;
+  height: 2px;
+}
+
+#naive .quality .progress .determinate {
+  background-color: #bdbdbd !important;
+}
+
+#green .quality .progress .determinate {
+  background-color: #1bc54b !important;
+}
+
+#skilled .quality .progress .determinate {
+  background-color: #0090ff !important;
+}
+
+#professional .quality .progress .determinate {
+  background-color: #ffd400 !important;
+}
+
+#artisan .quality .progress .determinate {
+  background-color: #e07300 !important;
+}
+
 .race label {
   display: none;
 }
