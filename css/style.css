@@ -97,21 +97,21 @@ table.colored .race span {
 #giant span {
   position: absolute;
   margin-left: -28px;
-  margin-top: -85px;
+  margin-top: -40px;
   opacity: 0.2;
 }
 
 #human span {
   position: absolute;
   margin-left: -34px;
-  margin-top: -85px;
+  margin-top: -40px;
   opacity: 0.2;
 }
 
 #goblin span {
   position: absolute;
   margin-left: -30px;
-  margin-top: -85px;
+  margin-top: -40px;
   opacity: 0.2;
 }
 
