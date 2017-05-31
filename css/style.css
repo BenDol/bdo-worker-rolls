@@ -86,6 +86,35 @@ table.colored tr#artisan td.race {
   height: 2px;
 }
 
+.race span {
+  visibility: hidden;
+}
+
+table.colored .race span {
+  visibility: visible;
+}
+
+#giant span {
+  position: absolute;
+  margin-left: -28px;
+  margin-top: -85px;
+  opacity: 0.2;
+}
+
+#human span {
+  position: absolute;
+  margin-left: -34px;
+  margin-top: -85px;
+  opacity: 0.2;
+}
+
+#goblin span {
+  position: absolute;
+  margin-left: -30px;
+  margin-top: -85px;
+  opacity: 0.2;
+}
+
 #naive .quality .progress .determinate {
   background-color: #bdbdbd !important;
 }
